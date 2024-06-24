@@ -13,6 +13,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   packageManager: NodePackageManager.PNPM,
   mergify: false,
   eslint: false,
+  releaseWorkflow: false,
   repositoryUrl:
     "https://github.com/common-fate/awscdk-aws-idc-integration.git",
 
