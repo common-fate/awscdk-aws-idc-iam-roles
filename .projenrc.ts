@@ -4,7 +4,7 @@ import { NodePackageManager } from "projen/lib/javascript";
 const project = new awscdk.AwsCdkConstructLibrary({
   author: "Common Fate",
   authorAddress: "hello@commonfate.io",
-  cdkVersion: "2.1.0",
+  cdkVersion: "2.80.0",
   defaultReleaseBranch: "main",
   jsiiVersion: "~5.4.0",
   license: "MIT",

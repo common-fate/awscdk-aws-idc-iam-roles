@@ -2,7 +2,7 @@ import { Construct } from "constructs";
 import { Role } from "aws-cdk-lib/aws-iam";
 import { aws_iam } from "aws-cdk-lib";
 
-interface Props {
+export interface IAMIdentityCenterIAMRolesProps {
   externalId: string;
   /** The AWS account ID that Common Fate is deployed to. */
   commonFateAWSAccount: string;
@@ -15,7 +15,11 @@ interface Props {
 }
 
 export class IAMIdentityCenterIAMRoles extends Construct {
-  constructor(parent: Construct, name: string, props: Props) {
+  constructor(
+    parent: Construct,
+    name: string,
+    props: IAMIdentityCenterIAMRolesProps,
+  ) {
     super(parent, name);
 
     new Role(this, "read", {
