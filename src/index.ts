@@ -6,6 +6,12 @@ interface Props {
   externalId: string;
   /** The AWS account ID that Common Fate is deployed to. */
   commonFateAWSAccount: string;
+
+  /**
+   * Overrides the read role name.
+   * If unspecified, the read role name defaults to 'common-fate-prod-idc-reader-role'
+   */
+  readRoleName?: string;
 }
 
 export class IAMIdentityCenterIAMRoles extends Construct {
@@ -15,6 +21,7 @@ export class IAMIdentityCenterIAMRoles extends Construct {
     new Role(this, "read", {
       assumedBy: new aws_iam.AccountPrincipal(props.commonFateAWSAccount),
       externalIds: [props.externalId],
+      roleName: props.readRoleName ?? "common-fate-demo-idc-reader-role",
     });
   }
 }
