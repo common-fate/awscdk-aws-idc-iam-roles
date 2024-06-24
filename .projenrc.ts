@@ -21,4 +21,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
 });
+
+const npmrcFile = project.tryFindObjectFile(".npmrc");
+npmrcFile?.addOverride("auto-install-peers", "true");
+
 project.synth();
